@@ -24,7 +24,8 @@ if (config.proxy && config.proxy.enabled && config.proxy.url) {
         // Fallback: patch global.fetch with node-fetch + https-proxy-agent
         try {
           const nodeFetch = require("node-fetch");
-          const { HttpsProxyAgent } = require("https-proxy-agent");
+          const httpsProxyAgentMod = require("https-proxy-agent");
+          const HttpsProxyAgent = httpsProxyAgentMod.HttpsProxyAgent || httpsProxyAgentMod;
           const agent = new HttpsProxyAgent(proxyUrl);
           global.fetch = async function (url, options = {}) {
             const res = await nodeFetch(url, { ...options, agent });
@@ -46,7 +47,8 @@ if (config.proxy && config.proxy.enabled && config.proxy.url) {
       }
     } else if (proxyUrl.startsWith("socks5")) {
       try {
-        const { SocksProxyAgent } = require("socks-proxy-agent");
+        const socksProxyAgentMod = require("socks-proxy-agent");
+        const SocksProxyAgent = socksProxyAgentMod.SocksProxyAgent || socksProxyAgentMod;
         const nodeFetch = require("node-fetch");
         const agent = new SocksProxyAgent(proxyUrl);
         global.fetch = async function (url, options = {}) {
@@ -68,4 +70,3 @@ if (config.proxy && config.proxy.enabled && config.proxy.url) {
     console.error("⚠️ Unexpected error configuring proxy:", e.message);
   }
 }
-

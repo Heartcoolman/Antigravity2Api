@@ -1,0 +1,21 @@
+{
+  "name": "antigravity2api",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Claude-compatible API server with Antigravity (Gemini) upstream, OAuth account manager UI, and Docker support.",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "add": "node src/server.js --add"
+  },
+  "dependencies": {
+    "https-proxy-agent": "^7.0.5",
+    "node-fetch": "^2.6.12",
+    "socks-proxy-agent": "^7.0.0",
+    "undici": "^6.21.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

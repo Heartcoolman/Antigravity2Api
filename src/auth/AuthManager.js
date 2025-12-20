@@ -470,7 +470,7 @@ class AuthManager {
     this.tokenRefresher.scheduleRefresh(targetAccount);
 
     this.log("info", "✅ OAuth authentication successful! Credentials saved.");
-    this.log("info", "ℹ️  To add more accounts, run: node src/server.js --add");
+    this.log("info", "ℹ️  To add more accounts, run: npm run add (or: node src/server.js --add)");
     this.log("info", "🚀 You can now use the API.");
   }
 

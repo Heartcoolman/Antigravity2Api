@@ -206,10 +206,10 @@ const server = http.createServer(async (req, res) => {
     if (authManager.accounts && authManager.accounts.length === 0) {
       log("warn", "⚠️ No accounts loaded yet.");
       log("info", `ℹ️  Open admin UI: http://${HOST === "0.0.0.0" ? "localhost" : HOST}:${PORT}/`);
-      log("info", "ℹ️  Or run CLI OAuth: node src/server.js --add");
+      log("info", "ℹ️  Or run CLI OAuth: npm run add (or: node src/server.js --add)");
     } else {
       log("info", `ℹ️  Admin UI: http://${HOST === "0.0.0.0" ? "localhost" : HOST}:${PORT}/`);
-      log("info", `ℹ️  To add accounts via CLI: node src/server.js --add`);
+      log("info", "ℹ️  To add accounts via CLI: npm run add (or: node src/server.js --add)");
     }
   });
 })();

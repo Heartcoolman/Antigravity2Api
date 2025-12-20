@@ -7,7 +7,7 @@
 - **Thought Signatures（思考签名）**：按 Gemini 官方规范透传 `thoughtSignature`，在 thinking / 工具调用等场景中确保下一轮请求能原样带回签名，避免 `missing thought_signature` 类校验错误。
 - **工具调用（Tool Use）**：支持 Claude `tool_use` / `tool_result` 与 Gemini `functionCall` / `functionResponse` 的互转，兼容需要工具调用的客户端/工作流。
 
-> **推荐启动方式**：在项目根目录运行 `node src/server.js`。本项目会以当前工作目录（`process.cwd()`）定位 `.env`、`auths/`、`log/`；如果你在 `src/` 目录运行，则对应路径会变成 `src/.env`、`src/auths/`、`src/log/`。
+> **推荐启动方式**：在项目根目录运行 `npm run start`（或 `node src/server.js`）。本项目会以当前工作目录（`process.cwd()`）定位 `.env`、`auths/`、`log/`；如果你在 `src/` 目录运行，则对应路径会变成 `src/.env`、`src/auths/`、`src/log/`。
 
 启动后可直接访问管理界面：`http://localhost:3000/`（端口以 `AG2API_PORT` 为准，默认 3000）。
 
@@ -17,31 +17,17 @@
 
 ## 2. 安装依赖
 
-如果你不启用代理（`AG2API_PROXY_ENABLED=false`），无需安装任何额外依赖。
-
-如果你启用代理，为了确保代理对 `fetch` 生效，建议安装以下依赖（按需选择）：
-
-在项目根目录下打开终端（CMD 或 PowerShell）运行：
+在项目根目录执行一次即可：
 
 ```bash
-npm install undici
+npm install
 ```
 
-可选：如果你不装 `undici`，会自动降级到 `node-fetch`，此时需要安装：
-
-```bash
-npm install node-fetch https-proxy-agent
-```
-
-可选：如果你使用 SOCKS5 代理，需要安装：
-
-```bash
-npm install node-fetch socks-proxy-agent
-```
+> 本项目核心逻辑可零依赖运行；但如果你启用了代理（`AG2API_PROXY_ENABLED=true`），建议执行一次 `npm install` 以确保代理对 `fetch` 生效（依赖包含 `undici` / `node-fetch` / `*-proxy-agent` 等）。
 
 > **注意**：如果在 PowerShell 中遇到“无法加载文件...npm.ps1”的错误，请尝试使用 CMD 运行，或者使用以下命令绕过策略：
 > ```bash
-> cmd /c npm install undici
+> cmd /c npm install
 > ```
 
 ## 3. 配置文件 (.env)
@@ -78,7 +64,7 @@ Google OAuth Client（可选覆盖）：
 运行以下命令启动服务器：
 
 ```bash
-node src/server.js
+npm run start
 ```
 
 启动后打开管理界面添加/删除账号：
@@ -89,10 +75,10 @@ node src/server.js
 如果你仍然希望用命令行方式添加账号，也可以运行：
 
 ```bash
-node src/server.js --add
+npm run add
 ```
 
-> `--add` 授权成功后会继续启动服务（同 `node src/server.js`），无需再手动重启。
+> `npm run add`（或 `node src/server.js --add`）授权成功后会继续启动服务（同 `npm run start`），无需再手动重启。
 
 ## 5. Web 管理界面
 
