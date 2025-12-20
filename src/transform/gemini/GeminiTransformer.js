@@ -10,6 +10,8 @@ function cleanSchema(schema) {
     maxLength: "maxLength",
     minimum: "minimum",
     maximum: "maximum",
+    exclusiveMinimum: "exclusiveMinimum",
+    exclusiveMaximum: "exclusiveMaximum",
     minItems: "minItems",
     maxItems: "maxItems",
   };
@@ -262,4 +264,3 @@ module.exports = {
   unwrapResponse,
   createUnwrapStream,
 };
-

@@ -593,6 +593,8 @@ function cleanJsonSchema(schema) {
     maxLength: "maxLength",
     minimum: "minimum",
     maximum: "maximum",
+    exclusiveMinimum: "exclusiveMinimum",
+    exclusiveMaximum: "exclusiveMaximum",
     minItems: "minItems",
     maxItems: "maxItems",
   };
