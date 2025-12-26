@@ -2,17 +2,17 @@
 
 本服务将 Antigravity 代理出来，转换为标准的 Claude API 和 Gemini API 接口，
 
-完整适配CC
-function_calling
-subagent
-结构化输出
-流式思考
-完整的交错思考签名验证（thoughtsignature）
-大香蕉生图
-web_search（Antigravity内置的flash2.5模型）
-token计算 count_tokens
-Gemini端点支持geminicli(没严格测试)
-账号切换等等。
+* 完整适配CC
+* function_calling
+* subagent
+* 结构化输出
+* 流式思考
+* 完整的交错思考签名验证（thoughtsignature）
+* 大香蕉生图
+* web_search（Antigravity内置的flash2.5模型）
+* token计算 count_tokens
+* Gemini端点支持geminicli(没严格测试)
+* 账号切换等等。
 
 特性：
 
